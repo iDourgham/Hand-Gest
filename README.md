@@ -49,15 +49,3 @@ A well-documented notebook uploaded to **GitHub** that includes:
 ✅ **Model Performance** – Accuracy and robustness of trained models.  
 ✅ **Visualization** – Clear representation of data and results.  
 
----
-
-## **Installation & Setup**
-To set up the project, install dependencies:  
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/Hand-Gesture-Classification.git
-cd Hand-Gesture-Classification
-
-# Install dependencies
-pip install -r requirements.txt
