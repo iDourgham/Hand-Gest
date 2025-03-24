@@ -57,7 +57,7 @@ The **HaGRID (Hand Gesture Recognition Image Dataset)** contains labeled images 
 
 
 ## Contributors
-- **Mohamed Mohy** ([GitHub Profile](https://github.com/yourusername))
+- **Mohamed Mohy** ([GitHub Profile](https://github.com/iDourgham))
                    ([LinkedIn Profile](www.linkedin.com/in/eng-m-mohy))
 
 ## License
