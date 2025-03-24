@@ -1,80 +1,65 @@
-# Hand Gesture Classification Using MediaPipe
+# Hand Gesture Classification Using MediaPipe Landmarks from HaGRID Dataset
 
 ## Overview
-This project focuses on extracting hand landmarks using **MediaPipe** from the **HaGRID dataset** to develop a hand gesture classification system.
+This project aims to classify hand gestures using the **HaGRID dataset** and **MediaPipe Hand Landmarks**. The main objective is to extract meaningful features from hand images, preprocess the data, and train various machine learning models to achieve high classification accuracy.
 
-## Progress Overview
+## Dataset: HaGRID
+The **HaGRID (Hand Gesture Recognition Image Dataset)** contains labeled images of different hand gestures. We utilize **MediaPipe** to extract 2D hand landmarks, which serve as feature inputs for our machine learning models.
 
-### 1. **Initializing MediaPipe**
-- Implemented **MediaPipe Hands** for detecting and tracking hand landmarks.
-- Utilized:
-  ```python
-  mp_drawing = mp.solutions.drawing_utils # Helps visualize hand landmarks
-  mp_hands = mp.solutions.hands
-  ```
+## Methodology
+1. **Data Preprocessing**
+   - Load and clean the dataset.
+   - Extract **hand landmarks** using **MediaPipe**, removing the Z-coordinate.
+   - Encode class labels using **Label Encoding**.
+   - Split the data into training and testing sets.
+   - Normalize features using **StandardScaler**.
 
-### 2. **Initializing Webcam Feed**
-- Set up OpenCV to capture real-time video feed:
-  ```python
-  cap = cv2.VideoCapture(0)  # Captures webcam feed
-  ```
+2. **Model Training and Evaluation**
+   - **Random Forest Classifier**: Initial model to benchmark performance.
+   - **Hyperparameter Tuning**: Using `RandomizedSearchCV` to optimize hyperparameters.
+   - **XGBoost Classifier**: Explored for improved performance.
+   - **SVM Classifier**: Evaluated with different kernels and hyperparameters.
+   - **Performance Metrics**: Accuracy, Precision, Recall, F1-score.
 
-### 3. **Detection and Tracking Thresholds**
-- Configured:
-  - **Detection Confidence**: `0.8` (Threshold for initial hand detection)
-  - **Tracking Confidence**: `0.5` (Threshold for continuous tracking)
-  ```python
-  with mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5) as hands:
-  ```
+## Project Structure
+```
+├── dataset/                     # Contains raw and processed data
+│   ├── hand_landmarks_data.csv   # Processed dataset with extracted features
+│   ├── HaGRID_images/            # Original images from HaGRID (if used)
+│
+├── models/                      # Saved trained models
+│   ├── best_random_forest.pkl    # Optimized Random Forest model
+│   ├── best_xgboost.pkl          # Optimized XGBoost model
+│   ├── best_svm.pkl              # Optimized SVM model
+│
+├── src/                         # Source code for model training and evaluation
+│   ├── preprocess.py             # Data preprocessing steps
+│   ├── train_models.py           # Training different classifiers
+│   ├── evaluate.py               # Model performance evaluation
+│
+├── notebooks/                   # Jupyter notebooks for experimentation
+│
+├── README.md                    # Project documentation
+├── requirements.txt              # Dependencies required to run the project
+```
 
-### 4. **Processing Video Feed**
-- Converted each video frame from **BGR to RGB** (MediaPipe requires RGB format):
-  ```python
-  image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-  ```
-- Processed the frame using MediaPipe Hands:
-  ```python
-  results = hands.process(image)
-  ```
-- Converted back to **BGR** for OpenCV display:
-  ```python
-  image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-  ```
+## Results
+| Model                | Train Accuracy | Test Accuracy |
+|----------------------|---------------|--------------|
+| Random Forest       | 99.61%        | 85.40%       |
+| XGBoost            | 100%        | 92.4%       |
+| SVM                | 97.4%        | 94.7%       |
 
-### 5. **Rendering Hand Landmarks**
-- Checked if hands were detected:
-  ```python
-  if results.multi_hand_landmarks:
-  ```
-- Drew hand landmarks on the video feed:
-  ```python
-  for num, hand in enumerate(results.multi_hand_landmarks):
-      mp_drawing.draw_landmarks(image, hand, mp_hands.HAND_CONNECTIONS)
-  ```
+**Key Findings:**
+- The best-performing model achieved **94.7% accuracy**.
+- Hyperparameter tuning significantly improved model generalization.
+- Feature selection played a critical role in model performance.
 
-### 6. **Displaying the Video Feed**
-- Used OpenCV to show the processed frames with hand landmarks:
-  ```python
-  cv2.imshow('Hand Tracking', image)
-  ```
-- Allowed exiting the application by pressing **'q'**:
-  ```python
-  if cv2.waitKey(10) & 0xFF == ord('q'):
-      break
-  ```
 
-### 7. **Cleanup**
-- Released webcam and closed all OpenCV windows:
-  ```python
-  cap.release()
-  cv2.destroyAllWindows()
-  ```
+## Contributors
+- **Mohamed Mohy** ([GitHub Profile](https://github.com/yourusername))
+                   ([LinkedIn Profile](www.linkedin.com/in/eng-m-mohy))
 
-## Next Steps
-- **Improve gesture classification** by training a model using extracted landmarks.
-- **Enhance real-time performance** by optimizing processing speed.
-- **Explore multi-hand detection** for recognizing gestures with both hands.
-
----
-This project is a work in progress 🚀. Stay tuned for updates!
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
