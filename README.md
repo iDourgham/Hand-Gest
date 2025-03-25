@@ -42,6 +42,8 @@ A well-documented notebook uploaded to **GitHub** that includes:
 - **Predictions are displayed** in real-time.  
 - The video must be uploaded to **Google Drive** with a **public link**.  
 
+📌 **Watch the demonstration video here:** [Hand Gesture Classification Demo](https://drive.google.com/file/d/1wyZIUwyqijr3Z_Y1rER77UWRb4dP_SCM/view?usp=sharing)  
+
 ---
 
 ## **Evaluation Criteria**
@@ -52,10 +54,9 @@ A well-documented notebook uploaded to **GitHub** that includes:
 ---
 
 ## Contributors
-- **Mohamed Mohy** ([GitHub Profile](https://github.com/iDourgham))
+- **Mohamed Mohy** ([GitHub Profile](https://github.com/iDourgham))  
                    ([LinkedIn Profile](https://www.linkedin.com/in/eng-m-mohy/))
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
