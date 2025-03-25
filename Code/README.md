@@ -9,7 +9,7 @@ The **HaGRID (Hand Gesture Recognition Image Dataset)** contains labeled images 
 ## Methodology
 1. **Data Preprocessing**
    - Load and clean the dataset.
-   - Extract **hand landmarks** using **MediaPipe**, removing the Z-coordinate.
+   - Extract **hand landmarks** using **MediaPipe**.
    - Encode class labels using **Label Encoding**.
    - Split the data into training and testing sets.
    - Normalize features using **StandardScaler**.
