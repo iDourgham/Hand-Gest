@@ -49,3 +49,13 @@ A well-documented notebook uploaded to **GitHub** that includes:
 ✅ **Model Performance** – Accuracy and robustness of trained models.  
 ✅ **Visualization** – Clear representation of data and results.  
 
+---
+
+## Contributors
+- **Mohamed Mohy** ([GitHub Profile](https://github.com/iDourgham))
+                   ([LinkedIn Profile](https://www.linkedin.com/in/eng-m-mohy/))
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
