@@ -46,12 +46,12 @@ The **HaGRID (Hand Gesture Recognition Image Dataset)** contains labeled images 
 ## Results
 | Model                | Train Accuracy | Test Accuracy |
 |----------------------|---------------|--------------|
-| Random Forest       | 99.61%        | 85.40%       |
-| XGBoost            | 100%        | 92.4%       |
-| SVM                | 97.4%        | 94.7%       |
+| Random Forest       | 99.74%        | 97.68%       |
+| XGBoost            | 100%        | 98.8%       |
+| SVM                | 99.40%        | 98.79%       |
 
 **Key Findings:**
-- The best-performing model achieved **94.7% accuracy**.
+- The best-performing model achieved **98.8% accuracy**.
 - Hyperparameter tuning significantly improved model generalization.
 - Feature selection played a critical role in model performance.
 
