@@ -55,7 +55,6 @@ A well-documented notebook uploaded to **GitHub** that includes:
 
 ### Requirements
 
-```bash
 numpy==1.26.4
 pandas==2.2.3
 seaborn==0.13.2
